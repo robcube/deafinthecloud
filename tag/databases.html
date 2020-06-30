@@ -23,14 +23,14 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="//deafinthecloud.com/using-c-sharp-with-aws.html">Speed of Data</a></h1>
+                    <h1 class="entry-title"><a href="//deafinthecloud.com/tour-of-aws-databases.html">Tour of AWS Databases</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2020-04-10T13:37:00-06:00">
                 Published: Fri 10 April 2020
         </abbr>
 		<br />
-        <abbr class="modified" title="2020-04-10T13:37:00-06:00">
-                Updated: Fri 10 April 2020
+        <abbr class="modified" title="2020-05-27T13:37:00-06:00">
+                Updated: Wed 27 May 2020
         </abbr>
 
         <address class="vcard author">
@@ -39,10 +39,11 @@
 <p>In <a href="//deafinthecloud.com/category/data.html">Data</a>.</p>
 <p>tags: <a href="//deafinthecloud.com/tag/data.html">data</a> <a href="//deafinthecloud.com/tag/cloud.html">cloud</a> <a href="//deafinthecloud.com/tag/databases.html">databases</a> <a href="//deafinthecloud.com/tag/programming.html">programming</a> </p>
 </footer><!-- /.post-info --><p>Robert Koch, Enterprise Architect</p>
-<p>10 April 2020
+<p>Created: 10 April 2020<br/>
 Updated: 27 May 2020</p>
 <h2>Introduction</h2>
 <p>I'm doing a series on how C# works with AWS databases. AWS has 12 different databases all under different categories. Plagarizing the chart promiently displayed on the <a href="https://aws.amazon.com/products/databases/">AWS Database page</a>, I'll go through each serverless and managed database one and see how my preferred language, <a href="https://github.com/dotnet/csharplang">C#</a>, works. If you REALLY want it done in Python too, I can do that for you.</p>
+<p>I'm using the <a href="https://www.kaggle.com/new-york-city/nyc-parking-tickets">NYC Parking Tickets dataset</a> hosted on Kaggle as the base data. The volume is large enough and there's enough variety for valid use cases and makes things a bit more real. The data is in CSV format which makes it EASY to import into the various AWS database flavors. By the way, sorry in advance to the folks ticketed, this dataset wouldn't have happened without your contribution!</p>
 <table>
 <tr>
 <th>Database Types</th>
@@ -50,12 +51,12 @@ Updated: 27 May 2020</p>
 <th>AWS service</th>
 </tr>
 <tr>
-<td>[Relational](#Relational)</td>
+<td><a href="#Relational">Relational</a></td>
 <td>Traditional applications, ERP, CRM, e-commerce</td>
 <td>Aurora, RDS, RedShift</td>
 </tr>
 <tr>
-<td>[NoSQL](#NoSQL)</td>
+<td><a href="#NoSQL">NoSQL</a></td>
 <td>High-traffic web apps, e-commerce systems, gaming applications, content management, catalogs, user profiles</td>
 <td>DynamoDB, DocumentDB</td>
 </tr>
@@ -86,8 +87,11 @@ Updated: 27 May 2020</p>
 </tr>
 </table>
 
+<p><a name="Relational"></a></p>
 <h2>Relational</h2>
-<p>Relational databases management systems (RDBMS) has been with the tech industury seemly since the beginning of time -- actually became all the rage with Ashton-Tate's dBase II in the early 80's. I remember working on my first relational database, Sybase in the late 90's, before migrating to Microsoft SQL Server 4.5. Damn, I've been around too long. The T-SQL concepts of SELECT, UPDATE, INSERT, JOINs, et al became real easy to grasp for me and millions of developers, then I fell into client-server application development with database programming as my strong suit. Relational databases still have a place in every IT shop and is arguably very dependable with plenty of people out there who are capable administrating them. </p>
+<p>Relational databases management systems (RDBMS) has been with the tech industury seemly since the beginning of time -- actually became all the rage with Ashton-Tate's dBase II in the early 80's. I remember working on my first relational database, Sybase in the late 90's, before migrating to Microsoft SQL Server 4.5. Damn, I've been around too long. The T-SQL concepts of SELECT, UPDATE, INSERT, JOINs, et al became real easy to grasp for me and millions of developers, then I fell into client-server application development with database programming as my strong suit. Relational databases still have a place in every IT shop and is arguably very dependable with plenty of people out there who are capable administrating them. 
+[Aurora Serverless]</p>
+<p><a name="NoSQL"></a></p>
 <h2>NoSQL</h2>
 <p>Now the new hotness, NoSQL -- first, throw out what you've learned about relationl databases -- just throw it out -- trust me. With NoSQL, joins should not be in your vocabulary, columns should not be in your vocabulary either, and yup, you've guessed it, rows too! The way I see it, instead of structured data, you have structured strings with each structured pieces called "attributes". Strings can be XML or JSON/BSON, or even comma-delimited if you want it to be. Most NoSQL engines are optimized for reading XML and JSON/BSON though. I see relational database vendors are shoehorning NoSQL concepts by making up JSON datatypes that works alongside your structured data. Neat concept doing that to leverage the best of both worlds, however, I don't think it <em>itching</em> feels right. Many RDMBS have XML dataypes too so adding JSON is not entirely new to database vendors. They can be interchanged to be document or key/value types -- sometimes both...</p>
 <h2>In-memory</h2>
