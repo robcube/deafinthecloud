@@ -2,13 +2,15 @@
 <html lang="english">
 <head>
         <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
         <title>Tour of AWS Databases</title>
         <link rel="stylesheet" href="//deafinthecloud.com/theme/css/main.css" />
+        <meta name="description" content="'round the lap with AWS Databases" />
 </head>
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="//deafinthecloud.com/">Deaf in the Cloud </a></h1>
+                <h1><a href="//deafinthecloud.com/">Deaf in the Cloud</a></h1>
                 <nav><ul>
                     <li><a href="//deafinthecloud.com/category/about.html">About</a></li>
                     <li><a href="//deafinthecloud.com/category/cloud.html">Cloud</a></li>
@@ -18,6 +20,7 @@
                     <li><a href="//deafinthecloud.com/category/faq.html">FAQ</a></li>
                     <li><a href="//deafinthecloud.com/category/looking-for-speakers.html">Looking for speakers</a></li>
                     <li><a href="//deafinthecloud.com/category/upcoming-talks.html">Upcoming talks</a></li>
+                    <li><a href="//deafinthecloud.com/category/workflow.html">Workflow</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 <section id="content" class="body">
@@ -99,14 +102,19 @@ Updated: 27 May 2020</p>
 <p><a name="NoSQL"></a></p>
 <h2>NoSQL</h2>
 <p>Now the new hotness, NoSQL -- first, throw out what you've learned about relationl databases -- just throw it out -- trust me. With NoSQL, joins should not be in your vocabulary, columns should not be in your vocabulary either, and yup, you've guessed it, rows too! The way I see it, instead of structured data, you have structured strings with each structured pieces called "attributes". Strings can be XML or JSON/BSON, or even comma-delimited if you want it to be. Most NoSQL engines are optimized for reading XML and JSON/BSON though. I see relational database vendors are shoehorning NoSQL concepts by making up JSON datatypes that works alongside your structured data. Neat concept doing that to leverage the best of both worlds, however, I don't think it <em>itching</em> feels right. Many RDMBS have XML dataypes too so adding JSON is not entirely new to database vendors. They can be interchanged to be document or key/value types -- sometimes both...</p>
+<p><a name="InMemory"></a></p>
 <h2>In-memory</h2>
 <p>In-memory databases are the ones that are very simple key-value store and they typically reside in your server's memory rather than the disk. Memory is always faster than disk but I'm sure the differences are narrowing with ever-improving SSD speed. You can cheat a little to have a few things on disk tho' for config purposes and used as a snapshot store. You need to have things stored on disk in case of memory issues, used as a backup/restore mechanism after a clean reboot, or there might be some obscure index construct that you don't see.</p>
+<p><a name="WideColumn"></a></p>
 <h2>Wide column</h2>
 <p>This is the admittedly weird category name: wide-column. Is Cassandra considered a wide-column database or is it called a row store? It's also a key-value store but at the same time the data is stored in row store column form. Confused yet? Pfftt, moving on... If I would have to give it a category label, I would call it a 'Data Model' type database. It's like coding in the MVVM paradigm I used to build WPF and Silverlight apps: hierarchy is king. That's the way I see it in Cassandra. I'll demo it soon enough to give you a better grasp of what it looks like.</p>
+<p><a name="Graph"></a></p>
 <h2>Graph</h2>
 <p>Graph databases are primed to quickly show relations between two or more distinct datasets. It is primarily used showing connections within social media but there's more -- could possibly show disease vectors in real-time, maybe show relationships between individuals partaking the most basic of economic activity (hint: bartering) and seeing who came out on top, or finding correlation between exercise/practice and excelling in sports. </p>
+<p><a name="TimeSeries"></a></p>
 <h2>Time series</h2>
 <p>This is new... and still in preview form. Sign up! With the prolifteration of IoT devices (hello smart watches, tracking drivers, or letting the weather drive temperatures in your home) we need a fast way to track this huge volume of data streaming in to do further analysis. Fellow AWS Data Hero Matt White from the UK did an amazing talk on that years, err, pre-COVID ago. </p>
+<p><a name="Ledger"></a></p>
 <h2>Ledger</h2>
 <p>Ledger... accounting... auditing... yup, they all go together. <em>American Southern accent</em> You do an entry, then it sticks in your craw; there's no escapin'. It's Amazon Web Service's "blockchain-like" database, but it's NOT blockchain since the real blockchains are a whole different beast.</p>
 <h2>Conclusion</h2>
@@ -147,10 +155,10 @@ Updated: 27 May 2020</p>
 
         <footer id="contentinfo" class="body">
                 <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
                 </address><!-- /#about -->
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
 </body>
