@@ -1,0 +1,8 @@
+baseURL = 'https://deafinthecloud.com/'
+languageCode = 'en-us'
+title = 'Deaf In The Cloud'
+theme = "ananke"
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
